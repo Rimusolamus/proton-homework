@@ -1,28 +1,27 @@
 package ch.protonmail.android.protonmailtest
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import ch.protonmail.android.protonmailtest.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.rememberNavController
+import ch.protonmail.android.protonmailtest.ui.navigation.NavGraph
+import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private val viewModel: MainViewModel by viewModels()
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        supportActionBar?.title = getString(R.string.app_name)
-        initTabs()
-        viewModel.fetchTasks(this)
+        setContent {
+            MainScreen()
+        }
     }
 
-    private fun initTabs() {
-        val adapter = TabsAdapter(this, supportFragmentManager)
-        binding.pager.adapter = adapter
-        binding.tabLayout.setupWithViewPager(binding.pager)
+    @Composable
+    private fun MainScreen() {
+        TasksComposeAppTheme {
+            val navController = rememberNavController()
+            NavGraph(navController)
+        }
     }
 }

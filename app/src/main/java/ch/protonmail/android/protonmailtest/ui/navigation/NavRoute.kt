@@ -1,0 +1,30 @@
+package ch.protonmail.android.protonmailtest.ui.navigation
+
+sealed class NavRoute(val path: String) {
+
+    object AllTasks: NavRoute("allTasks")
+
+    object Detail: NavRoute("detail")
+
+    // build navigation path (for screen navigation)
+    fun withArgs(vararg args: String): String {
+        return buildString {
+            append(path)
+            args.forEach{ arg ->
+                append("/$arg")
+            }
+        }
+    }
+
+    // build and setup route format (in navigation graph)
+    fun withArgsFormat(vararg args: String) : String {
+        return buildString {
+            append(path)
+            args.forEach{ arg ->
+                append("/{$arg}")
+            }
+        }
+    }
+}
+
+

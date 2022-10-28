@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/proton-homework.iml" filepath="$PROJECT_DIR$/.idea/modules/proton-homework.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/proton-homework.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/proton-homework.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/proton-homework.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/proton-homework.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/proton-homework.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/proton-homework.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/proton-homework.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/proton-homework.app.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/proton-homework.crypto.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/proton-homework.crypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProtonMailTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ProtonMailTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ProtonMailTest.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/ProtonMailTest.crypto.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/ProtonMailTest.crypto.iml" />
     </modules>
   </component>
 </project>
