@@ -18,7 +18,8 @@ fun DefaultButton(
     Spacer(modifier = Modifier.height(5.dp))
     Button(
         onClick = onClick,
-        modifier = Modifier.size(width = 200.dp, height = 70.dp)) {
+        modifier = Modifier.size(width = 200.dp, height = 70.dp)
+    ) {
         Text(text, fontSize = 40.sp)
     }
 }

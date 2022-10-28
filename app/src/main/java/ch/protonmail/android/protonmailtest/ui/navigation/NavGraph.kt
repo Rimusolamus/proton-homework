@@ -1,6 +1,7 @@
 package ch.protonmail.android.protonmailtest.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -9,9 +10,10 @@ import ch.protonmail.android.protonmailtest.ui.screens.AllTasksScreen
 import ch.protonmail.android.protonmailtest.ui.screens.DetailScreen
 
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
 
     NavHost(
+        modifier = modifier,
         navController = navController,
         startDestination = NavRoute.AllTasks.path
     ) {
@@ -41,7 +43,7 @@ private fun addDetailScreen(
     navGraphBuilder.composable(route = NavRoute.Detail.path) {
 
         DetailScreen(
-            popUpToLogin= { popUpToAllTasks(navController) },
+            popUpToLogin = { popUpToAllTasks(navController) },
         )
     }
 }
