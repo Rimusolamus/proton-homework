@@ -4,6 +4,8 @@ sealed class NavRoute(val path: String) {
 
     object AllTasks: NavRoute("allTasks")
 
+    object UpcomingTasks: NavRoute("upcomingTasks")
+
     object Detail: NavRoute("detail")
 
     // build navigation path (for screen navigation)

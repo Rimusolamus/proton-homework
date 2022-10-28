@@ -15,17 +15,17 @@ import ch.protonmail.android.protonmailtest.ui.common.DefaultButton
 import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 
 @Composable
-fun DetailScreen(
-    popUpToLogin: () -> Unit
+fun UpcomingTasksScreen(
+    navigateToDetail: () -> Unit
 ) {
     Column (
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("Detail Screen", fontSize = 40.sp)
+        Text("Upcoming tasks Screen", fontSize = 40.sp)
 
         DefaultButton(
-            text = "Home",
-            onClick = popUpToLogin
+            text = "Detail",
+            onClick = navigateToDetail
         )
     }
 }
@@ -38,8 +38,8 @@ private fun DefaultPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            DetailScreen(
-                popUpToLogin = {}
+            AllTasksScreen(
+                navigateToDetail = {}
             )
         }
     }

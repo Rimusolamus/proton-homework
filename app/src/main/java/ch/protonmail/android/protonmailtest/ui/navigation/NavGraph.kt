@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ch.protonmail.android.protonmailtest.ui.screens.AllTasksScreen
 import ch.protonmail.android.protonmailtest.ui.screens.DetailScreen
+import ch.protonmail.android.protonmailtest.ui.screens.UpcomingTasksScreen
 
 @Composable
 fun NavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
@@ -20,6 +21,8 @@ fun NavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
         addAllTasksScreen(navController, this)
 
         addDetailScreen(navController, this)
+
+        addUpcomingScreen(navController, this)
     }
 }
 
@@ -29,6 +32,20 @@ private fun addAllTasksScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.AllTasks.path) {
         AllTasksScreen(
+            navigateToDetail = {
+                navController.navigate(NavRoute.Detail.path)
+            }
+        )
+    }
+}
+
+private fun addUpcomingScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder
+) {
+    navGraphBuilder.composable(route = NavRoute.UpcomingTasks.path) {
+
+        UpcomingTasksScreen(
             navigateToDetail = {
                 navController.navigate(NavRoute.Detail.path)
             }

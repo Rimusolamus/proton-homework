@@ -21,7 +21,7 @@ fun AllTasksScreen(
     Column (
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("Login Screen", fontSize = 40.sp)
+        Text("All tasks Screen", fontSize = 40.sp)
 
         DefaultButton(
             text = "Detail",
