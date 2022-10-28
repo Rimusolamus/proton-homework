@@ -18,9 +18,10 @@ import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 fun UpcomingTasksScreen(
     navigateToDetail: () -> Unit
 ) {
-    Column (
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text("Upcoming tasks Screen", fontSize = 40.sp)
 
         DefaultButton(

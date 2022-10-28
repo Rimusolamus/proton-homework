@@ -18,9 +18,10 @@ import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 fun AllTasksScreen(
     navigateToDetail: () -> Unit
 ) {
-    Column (
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text("All tasks Screen", fontSize = 40.sp)
 
         DefaultButton(
