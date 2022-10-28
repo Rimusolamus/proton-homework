@@ -8,27 +8,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
-import androidx.compose.material.TabRowDefaults
-import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
-import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
-import ch.protonmail.android.protonmailtest.ui.common.DrawerBody
-import ch.protonmail.android.protonmailtest.ui.common.DrawerHeader
-import ch.protonmail.android.protonmailtest.ui.common.TopBar
 import ch.protonmail.android.protonmailtest.ui.navigation.NavGraph
 import ch.protonmail.android.protonmailtest.ui.navigation.NavRoute
 import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -43,14 +36,12 @@ class MainActivity : ComponentActivity() {
     private fun MainScreen() {
         TasksComposeAppTheme {
             val navController = rememberNavController()
-            val scaffoldState = rememberScaffoldState()
-
-            var selectedIndex by remember { mutableStateOf(0) }
+            // make state of tabs survive after screen rotation
+            var selectedIndex by rememberSaveable { mutableStateOf(0) }
 
             val tabs = listOf("All tasks", "Upcoming tasks")
 
             Scaffold(
-                scaffoldState = scaffoldState,
                 topBar = {
                     TopAppBar(
                         modifier = Modifier.padding(vertical = 8.dp),

@@ -31,8 +31,8 @@
             <stringArg name="classpath">
               <args>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/13c6c27a2863a7cf5af7328046a77454/transformed/crypto-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/1559863a058279d06887f50ed2875521/transformed/espresso-core-3.5.0-alpha07-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/89adecbb116b7a6a39900115251cdb33/transformed/runner-1.5.0-alpha04-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/97a8a2c829574d0125ee2da066ffdb4e/transformed/espresso-core-3.5.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/0cf2b4c98f9e3e1510b1e18264c92ac5/transformed/runner-1.5.0-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/98ec1f5f2481bbe9d3ce1600d82aba15/transformed/navigation-compose-2.5.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7812811bb0eb05b2fdf18aeab30d6f42/transformed/activity-compose-1.6.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/6f322537b8b7f090739455950bd638ab/transformed/navigation-runtime-ktx-2.5.3-api.jar</arg>
@@ -62,10 +62,10 @@
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-android/1.6.4/f955fc8b2ad196e2f4429598440e15f7492eeb2b/kotlinx-coroutines-android-1.6.4.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.10/d70d7d2c56371f7aa18f32e984e3e2e998fe9081/kotlin-stdlib-jdk8-1.7.10.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/6bc88e951b44cccf5f371aeb08cbf199/transformed/core-ktx-1.9.0-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/1cf996e5dde632a02d68c479b496387f/transformed/core-1.4.1-alpha07-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/89a87b54595e827aa67558a63ebbce67/transformed/storage-1.4.2-alpha04-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/94c5deef18443351aa35406daac548b3/transformed/monitor-1.6.0-alpha04-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/b72dee34268d6e925c478bacdff5bd1c/transformed/annotation-1.0.1-alpha01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/595f4a230a1bef0cc6365f34ee5ebb39/transformed/core-1.5.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/9daacfe4808ad64ae1f91b172a5c8470/transformed/storage-1.4.2-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/2b4a3d592cf942d7e0a1a85bc53b2186/transformed/monitor-1.6.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/db4f496136e2645a211aeb7c1cab0a40/transformed/annotation-1.0.1-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/dbc80f720dcdcacaa661499befe68b37/transformed/core-1.9.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/246eb389b1febda6af73d10bbdd34744/transformed/ui-text-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/09103f9334232732a05291991d8767d5/transformed/ui-graphics-1.3.0-api.jar</arg>
@@ -89,13 +89,13 @@
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.10/bac80c520d0a9e3f3673bc2658c6ed02ef45a76a/kotlin-stdlib-common-1.7.10.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/127340dce60cc4580fcca0dc645e9c9c/transformed/tracing-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.2/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c949a840a6acbc5268d088e47b04177bf90b3cad/listenablefuture-1.0.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/d67f9750bea8a1565f4e58f2cd457f9c/transformed/espresso-idling-resource-3.5.0-alpha07-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/29cf13fbd03204381b5e7b65c25f1d84/transformed/espresso-idling-resource-3.5.0-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/40d74c26c9aa9152eb9e9b33ff30f142/transformed/accompanist-systemuicontroller-0.27.0-api.jar</arg>
@@ -143,7 +143,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-common:2.5.1" level="project" />
@@ -160,15 +160,15 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.collection:collection:1.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-common-java8:2.5.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner:1.5.0-alpha04@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:annotation:1.0.1-alpha01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner:1.5.0-rc01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:annotation:1.0.1-rc01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.annotation:annotation-experimental:1.3.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.6.0-alpha04@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.6.0-rc01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.tracing:tracing:1.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.services:storage:1.4.2-alpha04@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.5.0-alpha07@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.4.1-alpha07@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.5.0-alpha07@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.services:storage:1.4.2-rc01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.5.0-rc01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.5.0-rc01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.5.0-rc01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-tooling:1.3.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.runtime:runtime:1.3.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui:1.3.0@aar" level="project" />
