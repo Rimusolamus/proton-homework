@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ./libs/crypto.aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/19889c779765d9659e5aaf82f04c642c/transformed/jetified-crypto/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/19889c779765d9659e5aaf82f04c642c/transformed/jetified-crypto/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/19889c779765d9659e5aaf82f04c642c/transformed/jetified-crypto/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

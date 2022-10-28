@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homework.iml" filepath="$PROJECT_DIR$/.idea/modules/homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/homework.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/homework.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/homework.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/homework.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/homework.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/homework.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/homework.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/homework.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.main.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto/homework.crypto.unitTest.iml" />
+    </modules>
+  </component>
+</project>
