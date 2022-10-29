@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha03@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-3/1a85cdf299e8dc0a1df3565a1616f67f/transformed/lifecycle-runtime-compose-2.6.0-alpha03/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/1a85cdf299e8dc0a1df3565a1616f67f/transformed/lifecycle-runtime-compose-2.6.0-alpha03/res" />
-      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/1a85cdf299e8dc0a1df3565a1616f67f/transformed/lifecycle-runtime-compose-2.6.0-alpha03/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-3/edd4376113c396dbbb71bcaa4b339f22/transformed/lifecycle-runtime-compose-2.6.0-alpha03/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/edd4376113c396dbbb71bcaa4b339f22/transformed/lifecycle-runtime-compose-2.6.0-alpha03/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/edd4376113c396dbbb71bcaa4b339f22/transformed/lifecycle-runtime-compose-2.6.0-alpha03/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

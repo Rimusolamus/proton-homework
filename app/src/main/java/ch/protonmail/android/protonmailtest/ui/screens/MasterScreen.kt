@@ -23,7 +23,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun MasterScreen(
     goToDetail: (String) -> Unit,
-    viewModel: MainViewModel = viewModel()
+    viewModel: MainViewModel
 ) {
 
     val viewState by viewModel.state.collectAsStateWithLifecycle()
