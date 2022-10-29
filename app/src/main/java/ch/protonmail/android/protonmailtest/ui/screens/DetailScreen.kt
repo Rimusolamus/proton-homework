@@ -16,7 +16,7 @@ import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 
 @Composable
 fun DetailScreen(
-    popUpToLogin: () -> Unit
+    backToMain: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -26,7 +26,7 @@ fun DetailScreen(
 
         DefaultButton(
             text = "Home",
-            onClick = popUpToLogin
+            onClick = backToMain
         )
     }
 }
@@ -40,7 +40,7 @@ private fun DefaultPreview() {
             color = MaterialTheme.colors.background
         ) {
             DetailScreen(
-                popUpToLogin = {}
+                backToMain = {}
             )
         }
     }

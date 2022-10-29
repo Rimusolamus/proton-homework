@@ -16,7 +16,7 @@ import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 
 @Composable
 fun AllTasksScreen(
-    navigateToDetail: () -> Unit
+    navigateToDetail: (String) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -26,7 +26,7 @@ fun AllTasksScreen(
 
         DefaultButton(
             text = "Detail",
-            onClick = navigateToDetail
+            onClick = { navigateToDetail("detail") }
         )
     }
 }

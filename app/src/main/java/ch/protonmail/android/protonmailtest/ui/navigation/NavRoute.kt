@@ -6,7 +6,11 @@ sealed class NavRoute(val path: String) {
 
     object UpcomingTasks: NavRoute("upcomingTasks")
 
-    object Detail: NavRoute("detail")
+    object Detail : NavRoute("detail/{id}") {
+        fun createRoute(id: String) = "detail/$id"
+    }
+
+    object Master: NavRoute("master")
 
     // build navigation path (for screen navigation)
     fun withArgs(vararg args: String): String {
