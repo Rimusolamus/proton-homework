@@ -1,20 +1,15 @@
 package ch.protonmail.android.protonmailtest.model
 
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
 
 data class Task(
-    @SerialName("creation_date")
-    val creationDate: String,
+    @SerializedName("creation_date") val creationDate: String,
 
-    @SerialName("due_date")
-    val dueDate: String,
+    @SerializedName("due_date") val dueDate: String,
 
-    @SerialName("encrypted_description")
-    val encryptedDescription: String,
+    @SerializedName("encrypted_description") val encryptedDescription: String,
 
-    @SerialName("encrypted_title")
-    val encryptedTitle: String,
+    @SerializedName("encrypted_title") val encryptedTitle: String,
 
-    val id: String,
-    val image: String
+    val id: String, val image: String
 )

@@ -42,7 +42,8 @@ private fun DefaultPreview() {
             color = MaterialTheme.colors.background
         ) {
             AllTasksScreen(
-                navigateToDetail = {}
+                navigateToDetail = {},
+                tasks = listOf()
             )
         }
     }

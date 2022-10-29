@@ -27,6 +27,7 @@ fun MasterScreen(
 ) {
 
     val viewState by viewModel.state.collectAsStateWithLifecycle()
+    val tasks by viewModel.tasks.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -44,7 +45,7 @@ fun MasterScreen(
         )
         when (viewState.selectedCategory) {
             HomeCategory.All -> {
-                AllTasksScreen(goToDetail)
+                AllTasksScreen(goToDetail, tasks)
             }
             HomeCategory.Upcoming -> {
                 UpcomingTasksScreen(goToDetail)
