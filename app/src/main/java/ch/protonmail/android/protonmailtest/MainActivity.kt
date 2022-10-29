@@ -4,26 +4,12 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import ch.protonmail.android.protonmailtest.ui.navigation.NavGraph
 import ch.protonmail.android.protonmailtest.ui.navigation.NavRoute
-import ch.protonmail.android.protonmailtest.ui.navigation.RealNavGraph
+import ch.protonmail.android.protonmailtest.ui.screens.DetailScreen
 import ch.protonmail.android.protonmailtest.ui.screens.MasterScreen
 import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 
@@ -49,6 +35,9 @@ class MainActivity : ComponentActivity() {
                         val uriWithId = Uri.encode(id)
                         navController.navigate(NavRoute.Detail.createRoute(uriWithId))
                     })
+                }
+                composable(NavRoute.Detail.path) {
+                    DetailScreen(backToMain = { navController.popBackStack() })
                 }
             }
         }

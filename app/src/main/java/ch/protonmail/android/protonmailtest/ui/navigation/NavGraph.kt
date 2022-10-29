@@ -11,40 +11,6 @@ import ch.protonmail.android.protonmailtest.ui.screens.DetailScreen
 import ch.protonmail.android.protonmailtest.ui.screens.MasterScreen
 import ch.protonmail.android.protonmailtest.ui.screens.UpcomingTasksScreen
 
-@Composable
-fun NavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
-
-    NavHost(
-        modifier = modifier,
-        navController = navController,
-        startDestination = NavRoute.AllTasks.path
-    ) {
-        addAllTasksScreen(navController, this)
-
-        // addDetailScreen(navController, this)
-
-        addUpcomingScreen(navController, this)
-    }
-}
-
-@Composable
-fun RealNavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
-
-    NavHost(
-        modifier = modifier,
-        navController = navController,
-        startDestination = NavRoute.Master.path
-    ) {
-        addAllTasksScreen(navController, this)
-
-        // addDetailScreen(navController, this)
-        //
-        // addMasterScreen(navController, this)
-
-        addUpcomingScreen(navController, this)
-    }
-}
-
 private fun addAllTasksScreen(
     navController: NavHostController,
     navGraphBuilder: NavGraphBuilder
@@ -71,25 +37,3 @@ private fun addUpcomingScreen(
         )
     }
 }
-//
-// private fun addMasterScreen(
-//     navController: NavHostController,
-//     navGraphBuilder: NavGraphBuilder
-// ) {
-//     navGraphBuilder.composable(route = NavRoute.Master.path) {
-//
-//         MasterScreen(navController = navController)
-//     }
-// }
-//
-// private fun addDetailScreen(
-//     navController: NavHostController,
-//     navGraphBuilder: NavGraphBuilder
-// ) {
-//     navGraphBuilder.composable(route = NavRoute.Detail.path) {
-//
-//         DetailScreen(
-//             backToMain = { navController.navigate(NavRoute.Master.path) },
-//         )
-//     }
-// }
