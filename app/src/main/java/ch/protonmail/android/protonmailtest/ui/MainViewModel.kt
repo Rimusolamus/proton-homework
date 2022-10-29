@@ -9,7 +9,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,6 +22,7 @@ class MainViewModel @Inject constructor(
     private val selectedCategory = MutableStateFlow(HomeCategory.All)
     private val categories = MutableStateFlow(HomeCategory.values().asList())
     private val refreshing = MutableStateFlow(false)
+    private val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
 
     // Holds our view state which the UI collects via [state]
     private val _state = MutableStateFlow(MainViewState())
@@ -28,8 +32,13 @@ class MainViewModel @Inject constructor(
 
     private val _tasks = MutableStateFlow<List<Task>>(value = emptyList())
 
+    private val _upcomingTasks = MutableStateFlow<List<Task>>(value = emptyList())
+
     val tasks: StateFlow<List<Task>>
         get() = _tasks
+
+    val upcomingTasks: StateFlow<List<Task>>
+        get() = _upcomingTasks
 
     init {
         viewModelScope.launch {
@@ -60,6 +69,10 @@ class MainViewModel @Inject constructor(
     private fun getTasks() = viewModelScope.launch {
         tasksRepo.getTasks().let {
             _tasks.emit(it)
+            _upcomingTasks.emit(it.filter { task ->
+                val mDate = formatter.parse(task.dueDate)?.time ?: 0
+                mDate > System.currentTimeMillis()
+            })
         }
     }
 

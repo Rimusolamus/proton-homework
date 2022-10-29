@@ -17,7 +17,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.ui.HomeCategory
 import ch.protonmail.android.protonmailtest.ui.MainViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -28,6 +29,7 @@ fun MasterScreen(
 
     val viewState by viewModel.state.collectAsStateWithLifecycle()
     val tasks by viewModel.tasks.collectAsStateWithLifecycle()
+    val upcomingTasks by viewModel.upcomingTasks.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -41,6 +43,7 @@ fun MasterScreen(
             innerPadding,
             categories = viewState.categories,
             viewState.selectedCategory,
+            listOf(tasks.size, upcomingTasks.size),
             viewModel::onCategorySelected
         )
         when (viewState.selectedCategory) {
@@ -48,7 +51,7 @@ fun MasterScreen(
                 AllTasksScreen(goToDetail, tasks)
             }
             HomeCategory.Upcoming -> {
-                UpcomingTasksScreen(goToDetail)
+                UpcomingTasksScreen(goToDetail, upcomingTasks)
             }
         }
     }
@@ -59,6 +62,7 @@ fun MakeTabs(
     innerPadding: PaddingValues,
     categories: List<HomeCategory>,
     selectedCategory: HomeCategory,
+    tabsNumbers: List<Number>,
     onCategorySelected: (HomeCategory) -> Unit,
 ) {
     val selectedIndex = categories.indexOfFirst { it == selectedCategory }
@@ -75,8 +79,8 @@ fun MakeTabs(
                 text = {
                     Text(
                         text = when (category) {
-                            HomeCategory.All -> stringResource(R.string.all_tasks)
-                            HomeCategory.Upcoming -> stringResource(R.string.upcoming_tasks)
+                            HomeCategory.All -> "All tasks (${tabsNumbers[0]})"
+                            HomeCategory.Upcoming -> "Upcoming tasks (${tabsNumbers[1]})"
                         }
                     )
                 }

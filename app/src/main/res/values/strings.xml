@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Proton Test</string>
-    <string name="all_tasks">All tasks</string>
-    <string name="upcoming_tasks">Upcoming tasks</string>
 </resources>
