@@ -12,6 +12,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "API_URL", '"https://proton-android-testcloud.europe-west1.firebasedatabase.app/"'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -67,6 +68,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha03"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.5.0-rc01'

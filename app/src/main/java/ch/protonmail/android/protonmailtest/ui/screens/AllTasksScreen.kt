@@ -3,6 +3,7 @@ package ch.protonmail.android.protonmailtest.ui.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ch.protonmail.android.protonmailtest.ui.common.DefaultButton
 import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
@@ -19,7 +21,7 @@ fun AllTasksScreen(
     navigateToDetail: (String) -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().padding(top = 48.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("All tasks Screen", fontSize = 40.sp)
