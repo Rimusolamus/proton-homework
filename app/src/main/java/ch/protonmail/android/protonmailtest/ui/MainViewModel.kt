@@ -7,16 +7,13 @@ import ch.protonmail.android.protonmailtest.model.Task
 import ch.protonmail.android.protonmailtest.repo.TasksRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,6 +43,7 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            refreshing(isRefreshing = true)
             combine(
                 categories,
                 selectedCategory,
@@ -64,8 +62,6 @@ class MainViewModel @Inject constructor(
                 }.collect {
                     _state.value = it
                 }
-
-            refresh(force = false)
         }
         getTasks()
     }
@@ -74,6 +70,8 @@ class MainViewModel @Inject constructor(
     // todo: ERROR HANDLING YOU LAZY BASTARD
     private fun getTasks() = viewModelScope.launch(Dispatchers.IO) {
         tasksRepo.getTasks().let {
+            refreshing(isRefreshing = true)
+
             _tasks.emit(it.map { task ->
                 decryptFields(task)
             })
@@ -85,7 +83,7 @@ class MainViewModel @Inject constructor(
                     val mDate = formatter.parse(task.dueDate)?.time ?: 0
                     mDate > System.currentTimeMillis()
                 })
-            _state.value = _state.value.copy(refreshing = false)
+            refreshing(isRefreshing = false)
         }
     }
 
@@ -98,14 +96,9 @@ class MainViewModel @Inject constructor(
         )
     }
 
-    private fun refresh(force: Boolean) {
+    private fun refreshing(isRefreshing: Boolean) {
         viewModelScope.launch {
-            runCatching {
-                refreshing.value = true
-            }
-            // TODO: look at result of runCatching and show any errors
-
-            refreshing.value = false
+            refreshing.value = isRefreshing
         }
     }
 
