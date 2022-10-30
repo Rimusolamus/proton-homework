@@ -43,7 +43,11 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(NavRoute.Detail.path) { backStackEntry ->
                     val id = backStackEntry.arguments?.getString("id") ?: ""
-                    DetailScreen(backToMain = { navController.popBackStack() }, viewModel = viewModel(), id = id)
+                    DetailScreen(
+                        backToMain = { navController.popBackStack() },
+                        viewModel = viewModel(),
+                        id = id
+                    )
                 }
             }
         }

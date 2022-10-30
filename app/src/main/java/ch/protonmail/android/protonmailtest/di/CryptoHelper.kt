@@ -7,5 +7,5 @@ import javax.inject.Singleton
 @Singleton
 class CryptoHelper @Inject constructor(
 ) {
-    var instance: CryptoLib = CryptoLib()
+    val instance: CryptoLib = CryptoLib()
 }

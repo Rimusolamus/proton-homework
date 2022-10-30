@@ -14,14 +14,12 @@ class TasksRepo @Inject constructor(
     private val apiHelper: ApiHelper,
     private val taskCacheDao : TaskCacheDao
 ) {
-    // suspend fun getTasks() {
-    //     apiHelper.getTasks()
-    // }
+
     suspend fun getTasks(): Flow<List<Task>?> {
         return flow {
             emit(fetchTasksCached())
             val result = apiHelper.getTasks()
-
+            println("we are here")
             //Cache to database if response is successful
             if (result.isSuccessful) {
                 result.body().let { it ->
