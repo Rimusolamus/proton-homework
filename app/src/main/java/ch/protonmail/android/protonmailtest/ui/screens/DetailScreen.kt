@@ -1,16 +1,17 @@
 package ch.protonmail.android.protonmailtest.ui.screens
 
-import android.graphics.drawable.Drawable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -32,7 +33,6 @@ import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.ui.MainViewModel
-import ch.protonmail.android.protonmailtest.ui.common.DefaultButton
 import ch.protonmail.android.protonmailtest.ui.common.TaskItemDetail
 import ch.protonmail.android.protonmailtest.ui.theme.DarkGrey
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
@@ -64,66 +64,80 @@ fun DetailScreen(
                 title = { Text(stringResource(R.string.proton_vpn)) }, elevation = 0.dp
             )
         }) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            val filtered = tasks.filter { it.id == id }
 
-            if (viewState.refreshing) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator(
-                        color = MaterialTheme.colors.error,
-                        modifier = Modifier.align(Alignment.Center),
-                    )
-                }
-            }
-
-            LazyColumn(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
+                    .weight(1f)
             ) {
+                val filtered = tasks.filter { it.id == id }
 
-                if (filtered.isNotEmpty()) {
-                    item {
-                        if (viewState.onlyFromCache) {
-                            GlideImage(
-                                model = filtered[0].image,
-                                contentScale = ContentScale.FillWidth,
-                                contentDescription = null,
-                                requestBuilderTransform = {
-                                    it.onlyRetrieveFromCache(true)
-                                },
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(202.dp)
-                                    .background(DarkGrey)
-                            )
-                        } else {
-                            GlideImage(
-                                model = filtered[0].image,
-                                contentScale = ContentScale.FillWidth,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(202.dp)
-                                    .background(DarkGrey)
-                            )
+                if (viewState.refreshing) {
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator(
+                            color = MaterialTheme.colors.error,
+                            modifier = Modifier.align(Alignment.Center),
+                        )
+                    }
+                }
+
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+
+                    if (filtered.isNotEmpty()) {
+                        item {
+                            if (viewState.onlyFromCache) {
+                                GlideImage(
+                                    model = filtered[0].image,
+                                    contentScale = ContentScale.FillWidth,
+                                    contentDescription = null,
+                                    requestBuilderTransform = {
+                                        it.onlyRetrieveFromCache(true)
+                                    },
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(202.dp)
+                                        .background(DarkGrey)
+                                )
+                            } else {
+                                GlideImage(
+                                    model = filtered[0].image,
+                                    contentScale = ContentScale.FillWidth,
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(202.dp)
+                                        .background(DarkGrey)
+                                )
+                            }
+                            TaskItemDetail(task = filtered[0])
                         }
-                        TaskItemDetail(task = filtered[0])
                     }
                 }
             }
-            DefaultButton(text = "Load Image") {
-                viewModel.setOnlyFromCache(false)
+            Row(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+            ) {
+                Button(
+                    onClick = { viewModel.setOnlyFromCache(false) },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.error),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .height(48.dp)
+                        .fillMaxWidth()
+                ) {
+                    Text("Download image", style = MaterialTheme.typography.body1)
+                }
             }
         }
     }
 }
-
-@Composable
-private fun ShowImage(url: String, onlyRetrieveFromCache: Boolean) {
-
-}
-
