@@ -16,6 +16,7 @@ private val LightColorPalette = lightColors(
     onSecondary = Black,
     onBackground = Black,
     onSurface = Black,
+    error = Purple
 )
 
 @Composable
