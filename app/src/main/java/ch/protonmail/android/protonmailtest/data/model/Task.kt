@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.model
+package ch.protonmail.android.protonmailtest.data.model
 
 import com.google.gson.annotations.SerializedName
 

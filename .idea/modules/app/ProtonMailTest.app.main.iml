@@ -28,6 +28,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d9a5bf024661b95b554d7ee2adc07bd5/transformed/navigation-common-ktx-2.5.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f2aa46b80bc323364205351b39281073/transformed/navigation-common-2.5.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7065a54d1cb90b240f0c946e521e5d10/transformed/lifecycle-runtime-ktx-2.6.0-alpha03-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/f8222ca77151073d2d9d795b2097c273/transformed/room-ktx-2.4.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b82d035621ed64538d7a27c4f8459d57/transformed/ui-tooling-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8b9f3b28a4eb629cf29df9a0e1aa79ee/transformed/material-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/df53362ae390881932e322bf723fdf0e/transformed/ui-tooling-preview-1.3.0-api.jar</arg>
@@ -64,6 +65,10 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7ee49a1c4587a3165a0485ec06464f98/transformed/vectordrawable-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/5046ccd58ad83e3798454127eeeb1ef8/transformed/core-1.9.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/c1054720dc8bd4e78363af059efd1f8f/transformed/lifecycle-runtime-2.6.0-alpha03-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/6f11f44ce7abb84ebeadc5de7f895c61/transformed/room-runtime-2.4.3-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.room/room-common/2.4.3/63d9f9cb245ee9b4c8ebb8aca201661f99583ffa/room-common-2.4.3.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/573199039cd1e7f893b023bc36d20b72/transformed/sqlite-framework-2.2.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/98811ea088bdbff6e310012e684db5b2/transformed/sqlite-2.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9a7a667738186dfb2d2cdd4a4389500c/transformed/ui-text-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e78f9d56a4376b92cdf6f272814f10aa/transformed/ui-graphics-1.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3b4ae67a949f99d6762c4ae869576b15/transformed/ui-unit-1.3.0-api.jar</arg>
@@ -201,6 +206,7 @@
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.room:room-common:2.4.3" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common-java8:2.6.0-alpha03" level="project" />
     <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.44" level="project" />
     <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
@@ -229,6 +235,10 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.6.0-alpha03@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha03@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.room:room-runtime:2.4.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.sqlite:sqlite-framework:2.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.sqlite:sqlite:2.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.room:room-ktx:2.4.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.material:material:1.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.animation:animation-core:1.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.foundation:foundation:1.2.1@aar" level="project" />

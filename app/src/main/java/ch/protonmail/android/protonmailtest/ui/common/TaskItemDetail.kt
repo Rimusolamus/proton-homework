@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ch.protonmail.android.protonmailtest.R
-import ch.protonmail.android.protonmailtest.model.Task
+import ch.protonmail.android.protonmailtest.data.model.Task
 import ch.protonmail.android.protonmailtest.ui.theme.Grey
 import ch.protonmail.android.protonmailtest.ui.theme.Purple
 

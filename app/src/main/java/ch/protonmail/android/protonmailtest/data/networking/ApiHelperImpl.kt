@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.networking
+package ch.protonmail.android.protonmailtest.data.networking
 
 import javax.inject.Inject
 

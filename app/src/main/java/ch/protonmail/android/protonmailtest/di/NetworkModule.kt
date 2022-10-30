@@ -1,9 +1,9 @@
 package ch.protonmail.android.protonmailtest.di
 
 import ch.protonmail.android.protonmailtest.BuildConfig.API_URL
-import ch.protonmail.android.protonmailtest.networking.Api
-import ch.protonmail.android.protonmailtest.networking.ApiHelper
-import ch.protonmail.android.protonmailtest.networking.ApiHelperImpl
+import ch.protonmail.android.protonmailtest.data.networking.Api
+import ch.protonmail.android.protonmailtest.data.networking.ApiHelper
+import ch.protonmail.android.protonmailtest.data.networking.ApiHelperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -6,7 +6,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ch.protonmail.android.protonmailtest.model.Task
+import ch.protonmail.android.protonmailtest.data.model.Task
 import ch.protonmail.android.protonmailtest.ui.common.LazyList
 import ch.protonmail.android.protonmailtest.ui.theme.TasksComposeAppTheme
 

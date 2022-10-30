@@ -3,8 +3,8 @@ package ch.protonmail.android.protonmailtest.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ch.protonmail.android.protonmailtest.di.CryptoHelper
-import ch.protonmail.android.protonmailtest.model.Task
-import ch.protonmail.android.protonmailtest.repo.TasksRepo
+import ch.protonmail.android.protonmailtest.data.model.Task
+import ch.protonmail.android.protonmailtest.data.repo.TasksRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -56,10 +56,10 @@ class MainViewModel @Inject constructor(
                     errorMessage = null,
                 )
             }.catch { throwable -> // TODO: emit a UI error here. For now we'll just rethrow
-                    throw throwable
-                }.collect {
-                    _state.value = it
-                }
+                throw throwable
+            }.collect {
+                _state.value = it
+            }
         }
         getTasks()
     }
@@ -67,20 +67,23 @@ class MainViewModel @Inject constructor(
     // this is a heavy operation, so we want to unblock the UI thread
     // todo: ERROR HANDLING YOU LAZY BASTARD
     private fun getTasks() = viewModelScope.launch(Dispatchers.IO) {
-        tasksRepo.getTasks().let { tasks ->
-            refreshing(isRefreshing = true)
+        refreshing(isRefreshing = true)
 
-            val decryptedTasks = tasks.map { task ->
+        tasksRepo.getTasks().collect { tasks ->
+            val decryptedTasks = tasks?.map { task ->
                 decryptFields(task)
             }
 
-            _tasks.emit(decryptedTasks)
-            _upcomingTasks.emit(decryptedTasks.filter { task ->
-                    val mDate = formatter.parse(task.dueDate)?.time ?: 0
-                    mDate > System.currentTimeMillis()
-                })
-            refreshing(isRefreshing = false)
+            if (decryptedTasks != null) {
+                _tasks.emit(decryptedTasks)
+            }
+            decryptedTasks?.filter { task ->
+                val mDate = formatter.parse(task.dueDate)?.time ?: 0
+                mDate > System.currentTimeMillis()
+            }?.let { _upcomingTasks.emit(it) }
         }
+
+        refreshing(isRefreshing = false)
     }
 
     private fun decryptFields(task: Task): Task {
