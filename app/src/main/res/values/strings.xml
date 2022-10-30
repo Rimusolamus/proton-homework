@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Proton Test</string>
+    <string name="proton_vpn">Proton VPN</string>
 </resources>

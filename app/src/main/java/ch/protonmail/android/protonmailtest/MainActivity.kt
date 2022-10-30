@@ -36,16 +36,19 @@ class MainActivity : ComponentActivity() {
                 startDestination = NavRoute.Master.path
             ) {
                 composable(NavRoute.Master.path) {
-                    val viewModel = hiltViewModel<MainViewModel>()
                     MasterScreen(goToDetail = { id ->
                         val uriWithId = Uri.encode(id)
                         navController.navigate(NavRoute.Detail.createRoute(uriWithId))
-                    }, viewModel = viewModel)
+                    }, viewModel = viewModel())
                 }
-                composable(NavRoute.Detail.path) {
-                    DetailScreen(backToMain = { navController.popBackStack() })
+                composable(NavRoute.Detail.path) { backStackEntry ->
+                    val id = backStackEntry.arguments?.getString("id") ?: ""
+                    DetailScreen(backToMain = { navController.popBackStack() }, viewModel = viewModel(), id = id)
                 }
             }
         }
     }
+
+    @Composable
+    private fun viewModel() = hiltViewModel<MainViewModel>()
 }

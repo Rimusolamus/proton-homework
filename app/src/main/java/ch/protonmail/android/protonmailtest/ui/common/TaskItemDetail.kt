@@ -28,29 +28,11 @@ import ch.protonmail.android.protonmailtest.ui.theme.Purple
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun TaskItem(task: Task, navigateToDetail: (String) -> Unit) {
+fun TaskItemDetail(task: Task) {
     Row(modifier = Modifier
-        .clickable {
-            navigateToDetail(task.id)
-        }
         .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
-        GlideImage(
-            model = task.image,
-            contentScale = ContentScale.Crop,
-            contentDescription = null,
-            requestBuilderTransform = {
-                it.onlyRetrieveFromCache(true)
-            },
-            modifier = Modifier
-                .requiredSize(48.dp)
-                .clip(
-                    RoundedCornerShape(8.dp)
-                )
-                .background(DarkGrey)
-        )
 
         Column(modifier = Modifier.padding(start = 12.dp)) {
             Text(
