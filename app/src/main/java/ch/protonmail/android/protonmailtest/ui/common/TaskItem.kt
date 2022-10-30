@@ -79,7 +79,7 @@ fun TaskItem(task: Task, navigateToDetail: (String) -> Unit) {
                             textAlign = TextAlign.Start,
                             style = MaterialTheme.typography.body2,
                             fontWeight = FontWeight.Medium,
-                            modifier = Modifier.padding(start = 9.dp) // ??????
+                            modifier = Modifier.padding(start = 9.dp) // ?????? figma is weird time to time
                         )
                     }
                     Row(modifier = Modifier.padding(top = 8.dp)) {
