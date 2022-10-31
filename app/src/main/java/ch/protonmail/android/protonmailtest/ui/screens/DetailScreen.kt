@@ -1,7 +1,6 @@
 package ch.protonmail.android.protonmailtest.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +11,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -23,7 +21,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -32,7 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ch.protonmail.android.protonmailtest.R
-import ch.protonmail.android.protonmailtest.ui.MainViewModel
+import ch.protonmail.android.protonmailtest.data.model.Task
+import ch.protonmail.android.protonmailtest.ui.DetailViewModel
 import ch.protonmail.android.protonmailtest.ui.common.TaskItemDetail
 import ch.protonmail.android.protonmailtest.ui.theme.DarkGrey
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
@@ -41,13 +39,11 @@ import com.bumptech.glide.integration.compose.GlideImage
 @OptIn(ExperimentalLifecycleComposeApi::class, ExperimentalGlideComposeApi::class)
 @Composable
 fun DetailScreen(
-    viewModel: MainViewModel,
-    backToMain: () -> Unit,
-    id: String
+    viewModel: DetailViewModel,
+    backToMain: () -> Unit
 ) {
 
     val viewState by viewModel.state.collectAsStateWithLifecycle()
-    val tasks by viewModel.tasks.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -76,50 +72,46 @@ fun DetailScreen(
                     .fillMaxSize()
                     .weight(1f)
             ) {
-                val filtered = tasks.filter { it.id == id }
-
-                if (viewState.refreshing) {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        CircularProgressIndicator(
-                            color = MaterialTheme.colors.error,
-                            modifier = Modifier.align(Alignment.Center),
-                        )
-                    }
-                }
 
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
 
-                    if (filtered.isNotEmpty()) {
-                        item {
-                            if (viewState.onlyFromCache) {
-                                GlideImage(
-                                    model = filtered[0].image,
-                                    contentScale = ContentScale.FillWidth,
-                                    contentDescription = null,
-                                    requestBuilderTransform = {
-                                        it.onlyRetrieveFromCache(true)
-                                    },
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(202.dp)
-                                        .background(DarkGrey)
-                                )
-                            } else {
-                                GlideImage(
-                                    model = filtered[0].image,
-                                    contentScale = ContentScale.FillWidth,
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(202.dp)
-                                        .background(DarkGrey)
-                                )
-                            }
-                            TaskItemDetail(task = filtered[0])
+                    item {
+                        if (viewState.onlyFromCache) {
+                            GlideImage(
+                                model = viewState.task.image,
+                                contentScale = ContentScale.FillWidth,
+                                contentDescription = null,
+                                requestBuilderTransform = {
+                                    it.onlyRetrieveFromCache(true)
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(202.dp)
+                                    .background(DarkGrey)
+                            )
+                        } else {
+                            GlideImage(
+                                model = viewState.task.image,
+                                contentScale = ContentScale.FillWidth,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(202.dp)
+                                    .background(DarkGrey)
+                            )
                         }
+                        TaskItemDetail(
+                            task = Task(
+                                creationDate = viewState.task.creationDate,
+                                dueDate = viewState.task.dueDate,
+                                encryptedDescription = viewState.task.encryptedDescription,
+                                encryptedTitle = viewState.task.encryptedTitle,
+                                image = viewState.task.image
+                            )
+                        )
                     }
                 }
             }

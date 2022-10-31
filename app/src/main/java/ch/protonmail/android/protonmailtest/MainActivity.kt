@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import ch.protonmail.android.protonmailtest.ui.DetailViewModel
 import ch.protonmail.android.protonmailtest.ui.MainViewModel
 import ch.protonmail.android.protonmailtest.ui.navigation.NavRoute
 import ch.protonmail.android.protonmailtest.ui.screens.DetailScreen
@@ -32,27 +33,25 @@ class MainActivity : ComponentActivity() {
         TasksComposeAppTheme {
             val navController = rememberNavController()
             NavHost(
-                navController = navController,
-                startDestination = NavRoute.Master.path
+                navController = navController, startDestination = NavRoute.Master.path
             ) {
                 composable(NavRoute.Master.path) {
+                    val mainViewModel = hiltViewModel<MainViewModel>()
                     MasterScreen(goToDetail = { id ->
                         val uriWithId = Uri.encode(id)
                         navController.navigate(NavRoute.Detail.createRoute(uriWithId))
-                    }, viewModel = viewModel())
+                    }, viewModel = mainViewModel)
                 }
-                composable(NavRoute.Detail.path) { backStackEntry ->
-                    val id = backStackEntry.arguments?.getString("id") ?: ""
+                composable(NavRoute.Detail.path) {
+                    val detailViewModel = hiltViewModel<DetailViewModel>()
+
+                    //val id = backStackEntry.arguments?.getString("id") ?: ""
                     DetailScreen(
                         backToMain = { navController.popBackStack() },
-                        viewModel = viewModel(),
-                        id = id
+                        viewModel = detailViewModel,
                     )
                 }
             }
         }
     }
-
-    @Composable
-    private fun viewModel() = hiltViewModel<MainViewModel>()
 }

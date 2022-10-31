@@ -11,6 +11,9 @@ interface TaskCacheDao {
     @Query("SELECT * FROM taskcache")
     suspend fun getAll(): List<TaskCache>
 
+    @Query("SELECT * FROM taskcache WHERE id = :id")
+    suspend fun getTask(id: String): TaskCache
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(allTasks: List<TaskCache>)
 

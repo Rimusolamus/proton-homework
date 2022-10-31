@@ -60,8 +60,23 @@ class TasksRepo @Inject constructor(
         ).getOrNull() ?: field
     }
 
+    private fun decryptField(taskCache: TaskCache): Task {
+        return Task(
+            creationDate = decryptField(taskCache.creationDate),
+            image = decryptField(taskCache.image),
+            encryptedTitle = decryptField(taskCache.encryptedTitle),
+            encryptedDescription = decryptField(taskCache.encryptedDescription),
+            dueDate = decryptField(taskCache.dueDate),
+            id = taskCache.id,
+        )
+    }
+
     private fun encryptField(field: String): String {
         return cryptoHelper.instance.encrypt(field).getOrNull() ?: field
+    }
+
+    suspend fun fetchTaskCached(taskId: String): Task {
+        return decryptField(taskCacheDao.getTask(taskId))
     }
 
     private suspend fun fetchTasksCached(): List<Task> =

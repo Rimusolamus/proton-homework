@@ -23,36 +23,32 @@ class MainViewModel @Inject constructor(
     private val selectedCategory = MutableStateFlow(HomeCategory.All)
     private val categories = MutableStateFlow(HomeCategory.values().asList())
     private val refreshing = MutableStateFlow(true)
-    private val onlyFromCache = MutableStateFlow(true)
     private val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
 
-    // Holds our view state which the UI collects via [state]
+    val tasks: StateFlow<List<Task>>
+        get() = _tasks
+
+    private val _tasks = MutableStateFlow<List<Task>>(value = emptyList())
+
     private val _state = MutableStateFlow(MainViewState())
 
     val state: StateFlow<MainViewState>
         get() = _state
 
-    private val _tasks = MutableStateFlow<List<Task>>(value = emptyList())
-
     private val _upcomingTasks = MutableStateFlow<List<Task>>(value = emptyList())
-
-    val tasks: StateFlow<List<Task>>
-        get() = _tasks
 
     val upcomingTasks: StateFlow<List<Task>>
         get() = _upcomingTasks
 
     init {
         viewModelScope.launch {
-            refreshing(isRefreshing = true)
             combine(
-                categories, selectedCategory, refreshing, onlyFromCache
-            ) { categories, selectedCategory, refreshing, onlyFromCache ->
+                categories, selectedCategory, refreshing
+            ) { categories, selectedCategory, refreshing ->
                 MainViewState(
                     categories = categories,
                     selectedCategory = selectedCategory,
                     refreshing = refreshing,
-                    onlyFromCache = onlyFromCache,
                     errorMessage = null,
                 )
             }.catch { throwable -> // TODO: emit a UI error here. For now we'll just rethrow
@@ -65,10 +61,10 @@ class MainViewModel @Inject constructor(
     }
 
     private fun getTasks() = viewModelScope.launch(Dispatchers.IO) {
-        refreshing(isRefreshing = true)
         tasksRepo.getTasks().collect { tasks ->
             if (tasks != null) {
                 _tasks.emit(tasks)
+                refreshing(isRefreshing = false)
             }
             tasks?.filter { task ->
                 try {
@@ -80,18 +76,11 @@ class MainViewModel @Inject constructor(
                 }
             }?.let { _upcomingTasks.emit(it) }
         }
-        refreshing(isRefreshing = false)
     }
 
     private fun refreshing(isRefreshing: Boolean) {
         viewModelScope.launch {
             refreshing.value = isRefreshing
-        }
-    }
-
-    fun setOnlyFromCache(doLoad: Boolean) {
-        viewModelScope.launch {
-            onlyFromCache.value = doLoad
         }
     }
 
@@ -108,6 +97,5 @@ data class MainViewState(
     val selectedCategory: HomeCategory = HomeCategory.All,
     val categories: List<HomeCategory> = emptyList(),
     val errorMessage: String? = null,
-    val onlyFromCache: Boolean = true,
     val refreshing: Boolean = false,
 )
