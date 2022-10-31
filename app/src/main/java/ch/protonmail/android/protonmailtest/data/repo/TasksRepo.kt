@@ -29,9 +29,6 @@ class TasksRepo @Inject constructor(
                         if (it != null) {
                             taskCacheDao.deleteAll()
                             taskCacheDao.insertAll(it.map { task ->
-                                println("$$$$$$$$")
-                                println(task)
-                                println("$$$$$$$$")
                                 encryptTask(task)
                             })
                         }
@@ -58,23 +55,25 @@ class TasksRepo @Inject constructor(
     }
 
     private fun decryptField(field: String): String {
-        return cryptoHelper.instance.decrypt(field).getOrNull() ?: field
+        return cryptoHelper.instance.decrypt(field).getOrNull() ?: cryptoHelper.instance.decrypt(
+            field
+        ).getOrNull() ?: field
     }
+
     private fun encryptField(field: String): String {
         return cryptoHelper.instance.encrypt(field).getOrNull() ?: field
     }
-
 
     private suspend fun fetchTasksCached(): List<Task> =
         taskCacheDao.getAll().let { it ->
             it.map {
                 Task(
-                    id = it.id,
+                    creationDate = decryptField(it.creationDate),
                     image = decryptField(it.image),
                     encryptedTitle = decryptField(it.encryptedTitle),
                     encryptedDescription = decryptField(it.encryptedDescription),
                     dueDate = decryptField(it.dueDate),
-                    creationDate = decryptField(it.creationDate)
+                    id = it.id,
                 )
             }
         }
