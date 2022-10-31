@@ -25,7 +25,7 @@ class TasksRepo @Inject constructor(
                 val result = apiHelper.getTasks()
                 //Cache to database if response is successful
                 if (result.isSuccessful) {
-                    result.body().let { it ->
+                    result.body().let {
                         if (it != null) {
                             taskCacheDao.deleteAll()
                             taskCacheDao.insertAll(it.map { task ->

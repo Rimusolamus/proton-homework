@@ -39,27 +39,22 @@ import com.bumptech.glide.integration.compose.GlideImage
 @OptIn(ExperimentalLifecycleComposeApi::class, ExperimentalGlideComposeApi::class)
 @Composable
 fun DetailScreen(
-    viewModel: DetailViewModel,
-    backToMain: () -> Unit
+    viewModel: DetailViewModel, backToMain: () -> Unit
 ) {
 
     val viewState by viewModel.state.collectAsStateWithLifecycle()
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                modifier = Modifier.padding(vertical = 8.dp),
-                navigationIcon = {
-                    IconButton(onClick = backToMain) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = null,
-                        )
-                    }
-                },
-                title = { Text(stringResource(R.string.proton_vpn)) }, elevation = 0.dp
-            )
-        }) { innerPadding ->
+    Scaffold(topBar = {
+        TopAppBar(modifier = Modifier.padding(vertical = 8.dp), navigationIcon = {
+            IconButton(onClick = backToMain) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = null,
+                )
+            }
+        }, title = { Text(stringResource(R.string.proton_vpn)) }, elevation = 0.dp
+        )
+    }) { innerPadding ->
 
         Column(
             modifier = Modifier
@@ -74,8 +69,7 @@ fun DetailScreen(
             ) {
 
                 LazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth()
                 ) {
 
                     item {
@@ -104,20 +98,13 @@ fun DetailScreen(
                             )
                         }
                         TaskItemDetail(
-                            task = Task(
-                                creationDate = viewState.task.creationDate,
-                                dueDate = viewState.task.dueDate,
-                                encryptedDescription = viewState.task.encryptedDescription,
-                                encryptedTitle = viewState.task.encryptedTitle,
-                                image = viewState.task.image
-                            )
+                            task = viewState.task
                         )
                     }
                 }
             }
             Row(
-                modifier = Modifier
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 Button(
                     onClick = { viewModel.setOnlyFromCache(false) },

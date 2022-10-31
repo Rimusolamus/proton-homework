@@ -21,8 +21,9 @@ import ch.protonmail.android.protonmailtest.ui.theme.Purple
 
 @Composable
 fun TaskItemDetail(task: Task) {
-    Row(modifier = Modifier
-        .padding(horizontal = 16.dp, vertical = 12.dp)
+    Row(
+        modifier = Modifier
+            .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
 
         Column(modifier = Modifier.padding(start = 12.dp)) {
