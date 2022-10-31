@@ -1,8 +1,8 @@
 package ch.protonmail.android.protonmailtest.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ch.protonmail.android.protonmailtest.di.CryptoHelper
 import ch.protonmail.android.protonmailtest.data.model.Task
 import ch.protonmail.android.protonmailtest.data.repo.TasksRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -64,35 +64,23 @@ class MainViewModel @Inject constructor(
         getTasks()
     }
 
-    // this is a heavy operation, so we want to unblock the UI thread
-    // todo: ERROR HANDLING YOU LAZY BASTARD
     private fun getTasks() = viewModelScope.launch(Dispatchers.IO) {
         refreshing(isRefreshing = true)
-
         tasksRepo.getTasks().collect { tasks ->
-            val decryptedTasks = tasks?.map { task ->
-                decryptFields(task)
+            if (tasks != null) {
+                _tasks.emit(tasks)
             }
-
-            if (decryptedTasks != null) {
-                _tasks.emit(decryptedTasks)
-            }
-            decryptedTasks?.filter { task ->
-                val mDate = formatter.parse(task.dueDate)?.time ?: 0
-                mDate > System.currentTimeMillis()
+            tasks?.filter { task ->
+                try {
+                    val mDate = formatter.parse(task.dueDate)?.time ?: 0
+                    mDate > System.currentTimeMillis()
+                } catch (e: Exception) {
+                    Log.e("MainViewModel", "Error parsing date", e)
+                    false
+                }
             }?.let { _upcomingTasks.emit(it) }
         }
-
         refreshing(isRefreshing = false)
-    }
-
-    private fun decryptFields(task: Task): Task {
-        return task.copy(
-            encryptedTitle = CryptoHelper().instance.decrypt(task.encryptedTitle).getOrNull()
-                ?: task.encryptedTitle,
-            encryptedDescription = CryptoHelper().instance.decrypt(task.encryptedDescription)
-                .getOrNull() ?: task.encryptedDescription,
-        )
     }
 
     private fun refreshing(isRefreshing: Boolean) {
