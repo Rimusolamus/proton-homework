@@ -103,20 +103,24 @@ fun DetailScreen(
                     }
                 }
             }
-            Row(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-            ) {
-                Button(
-                    onClick = { viewModel.setOnlyFromCache(false) },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.error),
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(8.dp))
-                        .height(48.dp)
-                        .fillMaxWidth()
+            if (viewState.onlyFromCache) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
-                    Text("Download image", style = MaterialTheme.typography.body1)
+                    Button(
+                        onClick = { viewModel.setOnlyFromCache(false) },
+                        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.error),
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(8.dp))
+                            .height(48.dp)
+                            .fillMaxWidth()
+                    ) {
+                        Text(stringResource(R.string.download_image), style = MaterialTheme.typography.body1)
+                    }
                 }
             }
         }
     }
 }
+
+

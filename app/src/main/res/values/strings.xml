@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Proton Test</string>
     <string name="proton_vpn">Proton VPN</string>
+    <string name="download_image">Download image</string>
 </resources>
